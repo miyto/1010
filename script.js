@@ -4,14 +4,22 @@ let sel;
 
 function setup() {
     createCanvas(600, 600);
-    pieces.push(new Piece(0, 450, 450));
-    pieces.push(new Piece(18, 400, 400));
-    //console.log(pieces[0].id);
+    pieces.push(new Piece(floor(Math.random()*19), 400, 400));
+    pieces.push(new Piece(floor(Math.random()*19), 225, 400));
+    pieces.push(new Piece(floor(Math.random()*19), 50, 400));
+    repos();
     board = new Board();
-    //pieces[0].selected = true;
-    sel = pieces[0];
 }
 
+function repos() {
+    for (var i=0; i<3; i++) {
+        pieces[i].spawnX = pieces[i].x + (150 - pieces[i].w)/2;
+        pieces[i].spawnY = pieces[i].y + (150 - pieces[i].h)/2;
+        pieces[i].x = pieces[i].spawnX;
+        pieces[i].y = pieces[i].spawnY;
+        pieces[i].reinput();
+    }
+}
 function draw() {
     background(255);
     fill(100);
@@ -21,6 +29,13 @@ function draw() {
     board.draw();
     for (var i=0; i<pieces.length; i++) {
         pieces[i].draw();
+    }
+    if (pieces[0].placed && pieces[1].placed && pieces[2].placed) {
+        pieces = null; pieces = [];
+        pieces.push(new Piece(floor(Math.random()*19), 400, 400));
+        pieces.push(new Piece(floor(Math.random()*19), 225, 400));
+        pieces.push(new Piece(floor(Math.random()*19), 50, 400));
+        repos();
     }
 }
 
