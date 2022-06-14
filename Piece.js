@@ -19,7 +19,7 @@ class Piece {
         // ,2: 2x2 L
         // ,3: 2x2 ┐
         //
-        // ,4: 3x3 ┘
+        // ,4: 3x3 ┘ **************
         // ,5: 3x3 ┎
         // ,6: 3x3 L
         // ,7: 3x3 ┐
@@ -34,7 +34,7 @@ class Piece {
         // ,15: 5vert 221 102 85
         // ,16: 5hz
         //
-        // 17: 2x2 151 219 85
+        // ,17: 2x2 151 219 85
         // 18: 3x3 77 213 176
         if (this.id == 0) { this.sqs.push([this.x, this.y]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x+30, this.y]); this.w = 60; this.h = 60; this.color = color(89, 203, 135); }
         if (this.id == 1) { this.sqs.push([this.x+30, this.y+30]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x+30, this.y]); this.w = 60; this.h = 60; this.color = color(89, 203, 135); }
@@ -53,7 +53,8 @@ class Piece {
         if (this.id == 14) { this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x+60, this.y]); this.sqs.push([this.x+90, this.y]); this.w = 120; this.h = 30; this.color = color(231, 107, 132); }
         if (this.id == 15) { this.sqs.push([this.x, this.y]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x, this.y+60]); this.sqs.push([this.x, this.y+90]); this.sqs.push([this.x, this.y+120]); this.w = 30; this.h = 150; this.color = color(221, 102, 85); }
         if (this.id == 16) { this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x+60, this.y]); this.sqs.push([this.x+90, this.y]); this.sqs.push([this.x+120, this.y]); this.w = 150; this.h = 30; this.color = color(221, 102, 85); }
-        if (this.id == 17) {/** icbfdt */}
+        if (this.id == 17) { this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x+30, this.y+30]); this.w = 60; this.h = 60; this.color = color(151, 219, 85); }
+        if (this.id == 18) { this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x+30, this.y+30]); this.sqs.push([this.x, this.y+60]); this.sqs.push([this.x+30, this.y+60]); this.sqs.push([this.x+60, this.y]); this.sqs.push([this.x+60, this.y+30]); this.sqs.push([this.x+60, this.y+60]); this.w = 90; this.h = 90; this.color = color(77, 213, 176); }
     }
 
     reinput() {
@@ -74,6 +75,10 @@ class Piece {
         if (this.id == 14) { this.sqs = null; this.sqs = []; this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x+60, this.y]); this.sqs.push([this.x+90, this.y]);}
         if (this.id == 15) { this.sqs = null; this.sqs = []; this.sqs.push([this.x, this.y]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x, this.y+60]); this.sqs.push([this.x, this.y+90]); this.sqs.push([this.x, this.y+120]);}
         if (this.id == 16) { this.sqs = null; this.sqs = []; this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x+60, this.y]); this.sqs.push([this.x+90, this.y]); this.sqs.push([this.x+120, this.y]);}
+        if (this.id == 17) { this.sqs = null; this.sqs = []; this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x+30, this.y+30]); }
+        if (this.id == 18) { this.sqs = null; this.sqs = []; this.sqs.push([this.x, this.y]); this.sqs.push([this.x+30, this.y]); this.sqs.push([this.x, this.y+30]); this.sqs.push([this.x+30, this.y+30]); this.sqs.push([this.x, this.y+60]); this.sqs.push([this.x+30, this.y+60]); this.sqs.push([this.x+60, this.y]); this.sqs.push([this.x+60, this.y+30]); this.sqs.push([this.x+60, this.y+60]); }
+
+
     }
 
 
@@ -137,6 +142,9 @@ class Piece {
         if (this.id == 14) {return !board.bools[r][c] && !board.bools[r][c+1] && !board.bools[r][c+2] && !board.bools[r][c+3];}
         if (this.id == 15) {return !board.bools[r][c] && !board.bools[r+1][c] && !board.bools[r+2][c] && !board.bools[r+3][c] && !board.bools[r+4][c];}
         if (this.id == 16) {return !board.bools[r][c] && !board.bools[r][c+1] && !board.bools[r][c+2] && !board.bools[r][c+3] && !board.bools[r][c+4];}
+        if (this.id == 17) {return !board.bools[r][c] && !board.bools[r+1][c] && !board.bools[r][c+1] && !board.bools[r+1][c+1]; }
+        if (this.id == 18) {return !board.bools[r][c] && !board.bools[r+1][c] && !board.bools[r][c+1] && !board.bools[r+1][c+1] && !board.bools[r+2][c] && !board.bools[r+2][c+1] && !board.bools[r][c+2] && !board.bools[r+1][c+2] && !board.bools[r+2][c+2]; }
+
     }
 
 
@@ -167,6 +175,8 @@ class Piece {
            if (this.id == 14) {board.colors[r][c] = this.color; board.bools[r][c] = true; board.colors[r][c+1] = this.color; board.bools[r][c+1] = true; board.colors[r][c+2] = this.color; board.bools[r][c+2] = true; board.colors[r][c+3] = this.color; board.bools[r][c+3] = true;}
            if (this.id == 15) {board.colors[r][c] = this.color; board.bools[r][c] = true; board.colors[r+1][c] = this.color; board.bools[r+1][c] = true; board.colors[r+2][c] = this.color; board.bools[r+2][c] = true; board.colors[r+3][c] = this.color; board.bools[r+3][c] = true; board.colors[r+4][c] = this.color; board.bools[r+4][c] = true;}
            if (this.id == 16) {board.colors[r][c] = this.color; board.bools[r][c] = true; board.colors[r][c+1] = this.color; board.bools[r][c+1] = true; board.colors[r][c+2] = this.color; board.bools[r][c+2] = true; board.colors[r][c+3] = this.color; board.bools[r][c+3] = true; board.colors[r][c+4] = this.color; board.bools[r][c+4] = true;}
+           if (this.id == 17) {board.colors[r][c] = this.color; board.bools[r][c] = true; board.colors[r+1][c] = this.color; board.bools[r+1][c] = true; board.colors[r][c+1] = this.color; board.bools[r][c+1] = true; board.colors[r+1][c+1] = this.color; board.bools[r+1][c+1] = true;}
+           if (this.id == 18) {board.colors[r][c] = this.color; board.bools[r][c] = true; board.colors[r+1][c] = this.color; board.bools[r+1][c] = true; board.colors[r][c+1] = this.color; board.bools[r][c+1] = true; board.colors[r+1][c+1] = this.color; board.bools[r+1][c+1] = true; board.colors[r+2][c] = this.color; board.bools[r+2][c] = true; board.colors[r+2][c+1] = this.color; board.bools[r+2][c+1] = true; board.colors[r][c+2] = this.color; board.bools[r][c+2] = true; board.colors[r+1][c+2] = this.color; board.bools[r+1][c+2] = true; board.colors[r+2][c+2] = this.color; board.bools[r+2][c+2] = true;}
            this.placed = true;
        } else {
            this.x = this.spawnX;

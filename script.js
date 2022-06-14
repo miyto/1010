@@ -5,7 +5,7 @@ let sel;
 function setup() {
     createCanvas(600, 600);
     pieces.push(new Piece(0, 450, 450));
-    pieces.push(new Piece(16, 400, 400));
+    pieces.push(new Piece(18, 400, 400));
     //console.log(pieces[0].id);
     board = new Board();
     //pieces[0].selected = true;
